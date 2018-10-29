@@ -1,0 +1,30 @@
+{
+  "name": "cards-core",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "tslint -p tsconfig.json",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm test && npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haschish/cards-core.git"
+  },
+  "keywords": [],
+  "author": "Dmitry Ryabinin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haschish/cards-core/issues"
+  },
+  "homepage": "https://github.com/haschish/cards-core#readme",
+  "devDependencies": {
+    "@types/jest": "23.3.7",
+    "jest": "23.6.0",
+    "ts-jest": "23.10.4",
+    "tslint": "5.11.0",
+    "typescript": "3.1.3"
+  }
+}
