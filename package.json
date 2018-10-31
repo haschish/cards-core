@@ -1,13 +1,13 @@
 {
-  "name": "cards-core",
+  "name": "@haschish/cards-core",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "lint": "tslint -p tsconfig.json",
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm test && npm run lint"
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm test && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -26,5 +26,9 @@
     "ts-jest": "23.10.4",
     "tslint": "5.11.0",
     "typescript": "3.1.3"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {}
 }
