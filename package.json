@@ -2,7 +2,6 @@
   "name": "@haschish/cards-core",
   "version": "0.1.1",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "jest",
     "lint": "tslint -p tsconfig.json",
