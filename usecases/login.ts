@@ -1,8 +1,8 @@
 import IAppLogin from '../interfaces/app-login';
 import IStorageUser from '../interfaces/storage-user';
 
-export default (appProvider: IAppLogin, storageProvider: IStorageUser): void => {
-  const user = storageProvider.find(appProvider.email);
+export default async (appProvider: IAppLogin, storageProvider: IStorageUser): Promise<void> => {
+  const user = await storageProvider.find(appProvider.email);
   if (!user) {
     appProvider.notFound();
     return;

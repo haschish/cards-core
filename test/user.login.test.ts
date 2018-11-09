@@ -39,7 +39,7 @@ class StorageProvider implements IStorageUser {
     }
   ];
 
-  public find(email: string): IUser | undefined {
+  public async find(email: string): Promise<IUser | undefined> {
     return this.data.find((item) => item.email === email);
   }
 }
@@ -48,21 +48,21 @@ describe('login', () => {
 
   const storageProvider = new StorageProvider();
 
-  test(`should call the 'notFound' method when user hasn't found`, () => {
+  test(`should call the 'notFound' method when user hasn't found`, async () => {
     const appProvider = new AppLoginProvider('not-found-user@test.com', 'test');
-    userLogin(appProvider, storageProvider);
+    await userLogin(appProvider, storageProvider);
     expect(appProvider.status).toBe(status.NOT_FOUND);
   });
 
-  test(`should call the 'invalidPassword' method when user has found but password is invalid`, () => {
+  test(`should call the 'invalidPassword' method when user has found but password is invalid`, async () => {
     const appProvider = new AppLoginProvider('test@test.com', 'invalidpass');
-    userLogin(appProvider, storageProvider);
+    await userLogin(appProvider, storageProvider);
     expect(appProvider.status).toBe(status.INVALID_PASSWORD);
   });
 
-  test(`should call the 'success' method when user has found and password is valid`, () => {
+  test(`should call the 'success' method when user has found and password is valid`, async () => {
     const appProvider = new AppLoginProvider('test@test.com', 'test');
-    userLogin(appProvider, storageProvider);
+    await userLogin(appProvider, storageProvider);
     expect(appProvider.status).toBe(status.SUCCESS);
   });
 });
